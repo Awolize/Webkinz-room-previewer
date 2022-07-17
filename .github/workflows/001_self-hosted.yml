@@ -4,5 +4,8 @@ jobs:
   write-to-console:
     runs-on: self-hosted
     steps:
-      - run: echo 'Hello world!'
-      - run: ls
+      - uses: actions/checkout@v2
+      - run: |
+         echo 'Hello world!'
+         ls
+      - run: echo "test"
