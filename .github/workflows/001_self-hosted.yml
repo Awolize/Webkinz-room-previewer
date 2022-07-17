@@ -17,8 +17,8 @@ jobs:
          cd frontend
          ls
       - name: Build docker compose
-        run: docker compose -f docker-compose-prod.yml up -d --build
+        run: docker compose -f docker-compose-prod.yml up -d --build --wait
       - name: Check running containers
         run: docker ps -a
-      - name: Check logs
-        run: docker logs webkinz-frontend-prod
+      - name: Docker compose Down
+        run: docker compose -f docker-compose-prod.yml down
