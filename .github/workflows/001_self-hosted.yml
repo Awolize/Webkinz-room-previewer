@@ -10,10 +10,15 @@ jobs:
           git pull origin master
       - name: Backend
         run: |
-         cd backend
+         cd backend/app
          ls
       - name: Frontend
         run: |
          cd frontend
          ls
-         
+      - name: Build docker-compose
+        run: docker compose -f .\docker-compose-prod.yml up -d --build
+      - name: Check running containers
+        run: docker ps -a
+      - name: Check logs
+        run: docker logs webkinz-frontend-prod
