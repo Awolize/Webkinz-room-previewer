@@ -1,7 +1,7 @@
 name: first-github-action
 on: [push]
 jobs:
-  write-to-console:
+  deploy-on-server:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
@@ -16,8 +16,8 @@ jobs:
         run: |
          cd frontend
          ls
-      - name: Build docker-compose
-        run: docker-compose -f docker-compose-prod.yml up -d --build
+      - name: Build docker compose
+        run: docker compose -f docker-compose-prod.yml up -d --build
       - name: Check running containers
         run: docker ps -a
       - name: Check logs
