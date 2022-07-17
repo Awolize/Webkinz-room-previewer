@@ -19,6 +19,7 @@ jobs:
       - name: Build & start containers
         run: docker compose -f docker-compose-prod.yml up -d --build --wait
       - name: Check running containers
-        run: docker ps --columns=name,id,status,image
+        run: docker ps --format {{.Names}} \t{{.ID}} \t{{.Status}}
+        
       - name: Stop containers
         run: docker compose -f docker-compose-prod.yml down
