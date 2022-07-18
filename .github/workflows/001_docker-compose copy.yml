@@ -26,3 +26,15 @@ jobs:
         run: docker compose -f docker-compose-prod.yml down
       - name: 🍏 This job's status is ${{ job.status }}.
         run: echo "🍏 This job's status is ${{ job.status }}."
+
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            whoami
+            ls -al
