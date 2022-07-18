@@ -37,4 +37,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd Dev/webkinz
+            ls -l
             ./start_prod.sh
