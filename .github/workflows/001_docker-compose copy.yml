@@ -37,5 +37,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd Dev/webkinz
+            git pull
             ls -l
             ./start_prod.sh
