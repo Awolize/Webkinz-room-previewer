@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/generateRoom.module.css";
-import { getImage } from "../api/api";
 import DragImages from "./Draggable/DragImages";
 
 type Props = {
@@ -31,9 +30,8 @@ export default function ImageInteraction({
     }, [size, wallpaperPreview, flooringPreview]);
 
     async function fetchImage(type: string, name: string) {
-        const response = await getImage(type, name);
-        if (type == "wallpaper") setSelectedWallpaper(response.url);
-        if (type == "flooring") setSelectedFlooring(response.url);
+        if (type == "wallpaper") setSelectedWallpaper(`${type}/${name}`);
+        if (type == "flooring") setSelectedFlooring(`${type}/${name}`);
     }
 
     return (
