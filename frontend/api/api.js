@@ -1,5 +1,5 @@
-//const API_URL = process.env.REACT_APP_API_URL;
-const API_URL = "http://192.168.1.5:5000";
+const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = "http://192.168.1.5:5000";
 
 export const getPreviewImages = async (type, nextCursor) => {
     const params = new URLSearchParams();
