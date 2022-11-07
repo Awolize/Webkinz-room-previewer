@@ -108,7 +108,7 @@ export default function ImagePicker({
             </form>
 
             <div
-                className={styles.image_grid}
+                className={"flex flex-wrap gap-2 content-start"}
                 style={{
                     minHeight: "83vh",
                     maxHeight: "83vh",
@@ -120,13 +120,12 @@ export default function ImagePicker({
                         image: string, // image is a src_url to the server. like http://192.168.1.5:5000/api/image/flooring/Bakeshopflooring.png
                         index: number
                     ) => (
-                        <a onClick={() => imageClick(image)} key={index}>
-                            <img
-                                src={image}
-                                key={index}
-                                width={100}
-                                height={100}
-                            />
+                        <a
+                            onClick={() => imageClick(image)}
+                            key={index}
+                            className="flex w-36 h-36"
+                        >
+                            <img src={image} key={index} />
                         </a>
                     )
                 )}
