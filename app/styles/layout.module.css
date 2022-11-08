@@ -1,0 +1,36 @@
+.page {
+    --scrollbar-width: calc(100vw - 100%);
+    display: grid;
+    width: calc(100vw - var(--scrollbar-width));
+    height: 100vh;
+    grid-template-areas: "searchLeft header searchRight"
+                        'searchLeft main searchRight'
+                        'searchLeft footer searchRight';
+    grid-template-rows: 75px calc(100vh - 150px) 75px;
+    grid-template-columns: 25vw calc(100vw - 50vw) 25vw;
+    overflow: auto;
+    margin:0;
+    padding:0;
+}
+
+
+.page > header {
+    grid-area: header;
+  }
+  
+  .page > .sidebar {
+    grid-area: searchLeft;
+  }
+
+  .page > .middle {
+    grid-area: main;
+    position:relative;
+  }
+
+  .page > .sidebar2 {
+    grid-area: searchRight;
+  }
+  
+  .page > footer {
+    grid-area: footer;
+  }

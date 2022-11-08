@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/generateRoom.module.css";
 import Image from "next/image";
 import { getPreviewImages, searchImages } from "../../api/api";
 import LoadMore from "./LoadMore";
@@ -123,9 +122,9 @@ export default function ImagePicker({
                         <a
                             onClick={() => imageClick(image)}
                             key={index}
-                            className="flex w-36 h-36"
+                            className="relative flex w-36 h-36"
                         >
-                            <img src={image} key={index} />
+                            <Image src={image} key={index} layout="fill" />
                         </a>
                     )
                 )}
