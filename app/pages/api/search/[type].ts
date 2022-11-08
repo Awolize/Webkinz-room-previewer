@@ -1,6 +1,7 @@
+import { readFileSync } from "fs";
+import { join, resolve } from "path";
+
 const CURSOR_STEPS = 25;
-const { readdirSync } = require("fs");
-const path = require("path");
 
 export default async function handler(req, res) {
     // Init
@@ -38,17 +39,12 @@ export default async function handler(req, res) {
 }
 
 async function getFilteredPreviews(type, expression, cursor) {
-    const filePath = path.join("./public", type);
-    const filteredPreview = readdirSync(filePath).filter((fileName) => {
+    const file = join(resolve("public"), "generatedSource", type + ".json");
+    const previewList = JSON.parse(readFileSync(file, "utf-8"));
+
+    const filteredPreview = previewList.filter((fileName) => {
         let name = fileName.toLowerCase();
-        return (
-            name.search(expression) != -1 &&
-            !(
-                name.endsWith("small.png") ||
-                name.endsWith("medium.png") ||
-                name.endsWith("large.png")
-            )
-        );
+        return name.search(expression) != -1;
     });
     const slicedPreview = filteredPreview.slice(cursor, cursor + CURSOR_STEPS);
     const urlPreview = slicedPreview.map((name) => {

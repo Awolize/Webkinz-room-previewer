@@ -4,7 +4,8 @@
     "proxy": "http://192.168.1.5:5000",
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "node build.js && next build",
+        "buildImages": "node build.js",
         "start": "next start",
         "lint": "next lint"
     },

@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { readdirSync, readFileSync } from "fs";
+import { join, resolve } from "path";
 
 const CURSOR_STEPS = 25;
-const { readdirSync } = require("fs");
-const path = require("path");
 
 export default async function handler(
     req: NextApiRequest,
@@ -37,20 +37,14 @@ export default async function handler(
     });
 }
 
-async function getPreviews(folder, cursor) {
-    const filePath = path.join("./public", folder);
-    const preview = readdirSync(filePath).filter(
-        (name) =>
-            !(
-                name.endsWith("Small.png") ||
-                name.endsWith("Medium.png") ||
-                name.endsWith("Large.png")
-            )
+async function getPreviews(type, cursor) {
+    const file = join(resolve("public"), "generatedSource");
+    const previewList = JSON.parse(
+        readFileSync(file + type + ".json", "utf-8")
     );
+    const slicedPreview = previewList.slice(cursor, cursor + CURSOR_STEPS);
 
-    const slicedPreview = preview.slice(cursor, cursor + CURSOR_STEPS);
-
-    if (cursor + CURSOR_STEPS >= preview.length) {
+    if (cursor + CURSOR_STEPS >= previewList.length) {
         return [slicedPreview, true] as const;
     } else {
         return [slicedPreview, false] as const;
