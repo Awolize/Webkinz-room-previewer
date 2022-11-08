@@ -39,7 +39,7 @@ export default function GenerateRoom({}: Props) {
     };
 
     return (
-        <div className="bg-slate-800">
+        <div>
             <div className={styles.page}>
                 <header className="flex items-center justify-center px-4 py-5">
                     <Button
@@ -57,7 +57,7 @@ export default function GenerateRoom({}: Props) {
                 </header>
 
                 <div className={styles.sidebar}>
-                    <div className="border-r-2 bg-slate-800 border-slate-700">
+                    <div className="border-r-2  border-slate-700">
                         <ImagePicker
                             type="wallpaper"
                             callback={callbackShowPart}
@@ -74,7 +74,7 @@ export default function GenerateRoom({}: Props) {
                 </div>
 
                 <div className={styles.sidebar2}>
-                    <div className="border-l-2 bg-slate-800 border-slate-700">
+                    <div className="border-l-2 border-slate-700">
                         <ImagePicker
                             type="flooring"
                             callback={callbackShowPart}

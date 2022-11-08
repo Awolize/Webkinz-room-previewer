@@ -38,10 +38,8 @@ export default async function handler(
 }
 
 async function getPreviews(type, cursor) {
-    const file = join(resolve("public"), "generatedSource");
-    const previewList = JSON.parse(
-        readFileSync(file + type + ".json", "utf-8")
-    );
+    const file = join(resolve("public"), "generatedSource", type + ".json");
+    const previewList = JSON.parse(readFileSync(file, "utf-8"));
     const slicedPreview = previewList.slice(cursor, cursor + CURSOR_STEPS);
 
     if (cursor + CURSOR_STEPS >= previewList.length) {
