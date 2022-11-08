@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { getPreviewImages, searchImages } from "../../api/api";
+import { getPreviewImages, searchImages } from "../../client_api/api";
 import LoadMore from "./LoadMore";
 
 // type = "flooring" or "wallpaper"
