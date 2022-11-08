@@ -107,7 +107,7 @@ export default function ImagePicker({
             </form>
 
             <div
-                className={"flex flex-wrap gap-2 content-start"}
+                className={"flex flex-wrap gap-2 content-start p-1"}
                 style={{
                     minHeight: "83vh",
                     maxHeight: "83vh",

@@ -57,7 +57,7 @@ export default function GenerateRoom({}: Props) {
                 </header>
 
                 <div className={styles.sidebar}>
-                    <div className="border-r-2  border-slate-700">
+                    <div className="border-r-2 border-slate-800">
                         <ImagePicker
                             type="wallpaper"
                             callback={callbackShowPart}
@@ -74,7 +74,7 @@ export default function GenerateRoom({}: Props) {
                 </div>
 
                 <div className={styles.sidebar2}>
-                    <div className="border-l-2 border-slate-700">
+                    <div className="border-l-2 border-slate-800">
                         <ImagePicker
                             type="flooring"
                             callback={callbackShowPart}
